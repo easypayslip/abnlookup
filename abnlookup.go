@@ -18,6 +18,10 @@ func ValidateABN(abn string) bool {
 	// Remove all non-integer characters from the ABN
 	abn = cleanNumericString(abn)
 
+	if len(abn) == 0 {
+		return false
+	}
+
 	// If the first check digit is a 0 then it's not a valid ABN
 	if abn[:1] == "0" {
 		return false
